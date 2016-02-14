@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gedcomreader;
+package com;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,31 +7,32 @@ import java.util.Scanner;
  *
  * @author Zack Ankuda
  */
-public class GedcomReader {
+public class ReadGED {
 
     /**
      * @param args the command line arguments
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        
-        Scanner fileReader = new Scanner(new File("C:\\Users\\Zack\\Desktop\\SSW555\\Week 2\\P01_zmankuda.ged"));
-        
+
+        Scanner fileReader = new Scanner(new File("~P03_GEDCOMFile.ged"));
+
         String[] tags = {"INDI", "NAME","SEX","BIRT","DEAT","FAMC","FAMS","FAM","MARR","HUSB","WIFE","CHIL","DIV","DATE","HEAD","TRLR","NOTE"};
         String level;
         String tag;
         Boolean validTag;
-        String line;
+        //String line;
         String value;
-        String nextValue;
-        StringBuilder builder = new StringBuilder();
+        //String nextValue;
+        //StringBuilder builder = new StringBuilder();
+
         while(fileReader.hasNext()){
             //Read in level
             level = fileReader.next();
-            
+
             //Read tag
             tag = fileReader.next();
-            
+
             //Read in the rest of the line
             value = fileReader.nextLine();
 
@@ -57,5 +53,5 @@ public class GedcomReader {
             System.out.println("Tag: " + tag);
         }
     }
-    
+
 }
